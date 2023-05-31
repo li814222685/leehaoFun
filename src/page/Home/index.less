@@ -1,0 +1,110 @@
+video {
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  min-width: 100%;
+  min-height: 100%;
+  width: 100%;
+  /*加滤镜*/
+  /*filter: blur(15px); //背景模糊设置 */
+  /*-webkit-filter: grayscale(100%);*/
+  /*filter:grayscale(100%); //背景灰度设置*/
+  z-index: -11;
+}
+source {
+  min-width: 100%;
+  min-height: 100%;
+  height: auto;
+  width: auto;
+}
+
+@base: #fff;
+@base-night: #333333;
+#base-shadow() {
+  day: 2px 2px 4px #000;
+  night: 2px 3px 1px #999999;
+}
+
+.base-info {
+  position: absolute;
+  padding: 10px;
+  bottom: 100px;
+  left: 100px;
+  color: @base;
+  font-weight: bolder;
+  text-shadow: #base-shadow[day];
+  border-radius: 10px;
+
+  .clock {
+    font-size: 6rem;
+    margin-right: 3rem;
+  }
+  .weather {
+    .item-num {
+      font-size: 3.5rem;
+      vertical-align: text-bottom;
+    }
+    .item-icon {
+      color: gold;
+      font-size: 3.5rem;
+    }
+    .suffix {
+      color: @base;
+      font-size: 4rem;
+      margin-left: -10px;
+      background-color: rgba(0, 0, 0, 0);
+      vertical-align: super;
+    }
+  }
+}
+.wrapper {
+  position: absolute;
+  left: 36%;
+  bottom: 50px;
+  width: 30rem;
+  height: 10rem;
+
+  .login {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    height: 3rem;
+    margin: 0 auto;
+    // transform: translate(-50%, -50%);
+    border-radius: 30px;
+    background-color: rgba(214, 214, 214, 0.4);
+    padding: 10px 20px;
+    border: none;
+    color: #ffffff;
+    text-shadow: #base-shadow[day];
+    font-size: 2rem;
+    line-height: 0.5;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s, background-color 0.5s; /* 添加过渡效果 */
+  }
+}
+.wrapper:hover {
+  .login {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    background-color: rgba(34, 34, 34, 0.6);
+    transform: translateY(-20px); /* 设置向上移动的距离 */
+
+    transition: transform 0.5s, background-color 0.5s; /* 添加过渡效果 */
+  }
+}
+.curtain {
+  z-index: -10;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+span {
+  user-select: none;
+}
