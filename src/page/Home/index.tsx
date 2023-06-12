@@ -7,6 +7,7 @@ import WiCelsius from "@/assets/icon/weather-tags/WiCelsius";
 
 const Home = () => {
   const [time, changeTime] = useState(dayjs().format("HH:mm:ss"));
+  const [showModal, changeModal] = useState(false);
   useEffect(() => {
     setTimeout(() => {
       changeTime(dayjs().format("HH:mm:ss"));
@@ -26,9 +27,24 @@ const Home = () => {
         </span>
       </div>
       <div className="wrapper">
-        <button className="login">Press Enter ↵</button>
+        <button
+          className="login"
+          onClick={() => {
+            changeModal(true);
+          }}
+        >
+          Press Enter ↵
+        </button>
       </div>
       <div className="curtain"></div>
+      {showModal ? (
+        <div
+          className="glass-container"
+          onClick={() => {
+            changeModal(false);
+          }}
+        ></div>
+      ) : null}
     </>
   );
 };
